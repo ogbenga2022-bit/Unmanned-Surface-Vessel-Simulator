@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "USV Simulator";
+}
+<div class="container">
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+<form method="post">
+    <div class="row p-2">
+        <div class="col-lg-3">
+        <label>X (enter a value between 0-4):</label>
+        <input class="form-control" asp-for="DepartRequest.X" />
+    </div>
+    <div class="col-lg-3">
+        <label>Y (enter a value between 0-4):</label>
+        <input class="form-control" asp-for="DepartRequest.Y" />
+    </div>
+    <div class="col-lg-3">
+        <label>Facing (NORTH, SOUTH, EAST, WEST):</label>
+        <input class="form-control" asp-for="DepartRequest.Facing" />
+    </div>
+    </div>
+    
+    <button class="btn btn-success" type="submit" asp-page-handler="Depart">Depart</button>
+</form>
+
+
+<form method="post" class="p-2 text-center">
+    <div class="flex flex-row">
+        <button class="btn btn-primary" type="submit" asp-page-handler="Sail">Sail</button>
+    <button class="btn btn-primary" type="submit" asp-page-handler="Port">Port</button>
+    <button class="btn btn-primary" type="submit" asp-page-handler="Starboard">Starboard</button>
+    <button class="btn btn-primary" type="submit" asp-page-handler="Status">Status</button>
+    </div>
+    
+</form>
+
+
+<p class="text-primary"><strong>Output:</strong> @Model.Res</p>
+</div>
+
